@@ -31,7 +31,10 @@ jobs:
         run: npm ci
 
       - name: Disable server routes for static Pages preview
-        run: mv app/api app/_api_disabled
+        run: |
+          mv app/api app/_api_disabled
+          mv app/sitemap.ts app/_sitemap.ts
+          mv app/robots.ts app/_robots.ts
 
       - name: Build static site
         run: npm run build
