@@ -5,6 +5,8 @@ interface LogoProps {
   variant?: "default" | "light";
 }
 
+const publicBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export default function Logo({ variant = "default" }: LogoProps) {
   const light = variant === "light";
 
@@ -14,7 +16,7 @@ export default function Logo({ variant = "default" }: LogoProps) {
       className="group flex min-w-0 max-w-[72%] items-center gap-2.5 sm:max-w-none"
     >
       <Image
-        src="/branding/logo.svg"
+        src={`${publicBasePath}/branding/logo.svg`}
         alt="All4One Exterior Solutions logo"
         width={44}
         height={44}
