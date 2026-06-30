@@ -30,6 +30,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Disable server routes for static Pages preview
+        run: mv app/api app/_api_disabled
+
       - name: Build static site
         run: npm run build
         env:
