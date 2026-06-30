@@ -9,12 +9,12 @@ export default function RecentWork() {
       <div className="section-container">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
-            <h2 className="text-2xl font-bold tracking-tight text-charcoal">
-              Recent work
+            <h2 className="text-2xl font-bold tracking-tight text-charcoal sm:text-3xl">
+              Our work on Instagram
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-charcoal-muted sm:text-base">
-              Real before/afters and job photos from our Instagram. Trash cans,
-              siding, and more across Purcell &amp; Norman.
+              Real before/afters and job photos from @all4one.exteriorsolutions
+              — trash cans, siding, and more across Purcell &amp; Norman.
             </p>
           </div>
           <InstagramButton variant="link" label={`@${INSTAGRAM_USERNAME}`} />

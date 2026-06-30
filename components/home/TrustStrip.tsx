@@ -25,11 +25,12 @@ export default function TrustStrip({ phone }: TrustStripProps) {
               {item}
             </li>
           ))}
-          <li className="hidden sm:ml-auto sm:block">
+          <li className="sm:ml-auto">
             <a
               href={`tel:${phone.replace(/\D/g, "")}`}
-              className="text-sm font-semibold text-brand-700 hover:underline"
+              className="flex items-center gap-2 text-sm font-semibold text-brand-700 hover:underline"
             >
+              <span className="sm:hidden">Call </span>
               {phone}
             </a>
           </li>

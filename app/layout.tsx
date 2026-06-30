@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/layout/Header";
+import Header from "@/components/layout/SiteHeader";
 import MobileNav from "@/components/layout/MobileNav";
 import Footer from "@/components/layout/Footer";
 import LocalBusinessJsonLd from "@/components/seo/LocalBusinessJsonLd";
@@ -58,10 +58,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/gallery/siding-before-after.jpg",
-        width: 640,
-        height: 480,
-        alt: "Before and after siding cleaning by All4One Exterior Solutions",
+        url: "/hero/hero-backdrop.png",
+        width: 1200,
+        height: 800,
+        alt: "Clean home exterior — illustrative backdrop",
       },
     ],
   },

@@ -5,7 +5,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
     id: "trash-cans",
     title: "Trash Can Cleaning and Sanitizing",
     problem:
-      "Trash cans get grimy, smelly, and gross fast — especially in the heat. Odors, buildup, and yes, sometimes maggots.",
+      "Trash cans get grimy, smelly, and gross fast — especially in the heat. Odors, buildup, and stubborn grime.",
     result:
       "We deep clean and sanitize your cans so they look and smell fresh again. Good for a one-time reset or regular maintenance.",
     highlights: [

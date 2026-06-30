@@ -11,7 +11,11 @@ const navLinks = [
   { href: "/quote", label: "Get a quote" },
 ];
 
-export default function MobileMenu() {
+interface MobileMenuProps {
+  overlay?: boolean;
+}
+
+export default function MobileMenu({ overlay = false }: MobileMenuProps) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -26,7 +30,9 @@ export default function MobileMenu() {
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="touch-target inline-flex items-center justify-center rounded-md text-charcoal"
+        className={`touch-target inline-flex items-center justify-center rounded-md ${
+          overlay ? "text-white" : "text-charcoal"
+        }`}
         aria-expanded={open}
         aria-controls="mobile-menu-panel"
         aria-label={open ? "Close menu" : "Open menu"}

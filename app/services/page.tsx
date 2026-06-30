@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import ServiceCard from "@/components/services/ServiceCard";
 import QuoteCTA from "@/components/shared/QuoteCTA";
 import { SERVICE_DETAILS } from "@/lib/services-data";
+import { HERO_BACKDROP } from "@/lib/stock-images";
 import { getSettings } from "@/lib/storage";
 
 export const metadata: Metadata = {
@@ -15,15 +18,28 @@ export default async function ServicesPage() {
 
   return (
     <>
-      <section className="border-b border-gray-200 py-10">
-        <div className="section-container">
-          <h1 className="text-2xl font-bold text-charcoal sm:text-3xl">
-            Services
-          </h1>
-          <p className="mt-2 max-w-lg text-sm text-charcoal-muted">
+      <section className="relative overflow-hidden border-b border-gray-200">
+        <div className="absolute inset-0">
+          <Image
+            src={HERO_BACKDROP.src}
+            alt=""
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
+            aria-hidden
+          />
+          <div className="absolute inset-0 bg-charcoal/75" />
+        </div>
+        <div className="section-container relative py-14 sm:py-16">
+          <h1 className="text-2xl font-bold text-white sm:text-4xl">Services</h1>
+          <p className="mt-3 max-w-lg text-sm leading-relaxed text-gray-200 sm:text-base">
             Trash cans, siding, driveways, sidewalks, porches, fences — you say
             it, we spray it. Call {settings.phone} or PM for a free quote.
           </p>
+          <Link href="/quote" className="btn-primary mt-6 inline-flex px-6 py-3">
+            Get a free quote
+          </Link>
         </div>
       </section>
 

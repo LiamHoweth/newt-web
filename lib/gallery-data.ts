@@ -6,7 +6,7 @@ export interface GalleryItem {
   caption: string;
 }
 
-/** Work photos sourced from @all4one.exteriorsolutions on Instagram. */
+/** Work photos sourced from @all4one.exteriorsolutions on Instagram — real project photos only. */
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "siding-before-after",
@@ -27,11 +27,10 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "trash-cans-sanitize",
     src: "/gallery/trash-cans-sanitize.jpg",
-    alt: "Sanitized trash cans free of maggots and odors",
+    alt: "Sanitized trash cans free of odors and grime",
     service: "Trash Can Cleaning",
     caption:
-      "Maggots, odors, and grime handled. Same-day cleaning available.",
+      "Odors and grime handled. Same-day cleaning available.",
   },
 ];
 
-export const HERO_IMAGE = GALLERY_ITEMS[0];

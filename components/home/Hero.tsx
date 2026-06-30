@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { SiteSettings } from "@/lib/types";
 import InstagramButton from "@/components/shared/InstagramButton";
-import { HERO_IMAGE } from "@/lib/gallery-data";
+import { HERO_BACKDROP } from "@/lib/stock-images";
 
 interface HeroProps {
   settings: SiteSettings;
@@ -10,98 +10,91 @@ interface HeroProps {
 
 export default function Hero({ settings }: HeroProps) {
   return (
-    <section className="relative overflow-hidden border-b border-gray-200">
-      <div className="absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-emerald-50/40" />
-      <div
-        className="absolute -right-24 top-0 h-64 w-64 rounded-full bg-brand-100/50 blur-3xl"
-        aria-hidden
-      />
+    <section className="relative -mt-[4.25rem] min-h-[72vh] overflow-hidden border-b border-gray-900/10 pt-[4.25rem] sm:min-h-[80vh] lg:min-h-[85vh]">
+      {/* Full-bleed backdrop */}
+      <div className="absolute inset-0">
+        <Image
+          src={HERO_BACKDROP.src}
+          alt={HERO_BACKDROP.alt}
+          fill
+          className="object-cover object-[center_30%] sm:object-center"
+          sizes="100vw"
+          priority
+          quality={90}
+        />
+        {/* Stronger overlay on mobile for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/92 via-charcoal/80 to-charcoal/55 sm:from-charcoal/85 sm:via-charcoal/70 sm:to-charcoal/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-charcoal/20 to-transparent sm:from-charcoal/60 sm:via-transparent sm:to-charcoal/20" />
+      </div>
 
-      <div className="section-container relative py-10 xs:py-12 sm:py-16 lg:py-20">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
-          <div className="max-w-xl">
-            <p className="inline-block max-w-full rounded-full bg-white px-3 py-1.5 text-xs font-medium leading-snug text-brand-800 ring-1 ring-brand-200">
-              {settings.announcement}
-            </p>
+      <div className="section-container relative flex min-h-[calc(72vh-4.25rem)] flex-col justify-center py-10 pb-14 sm:min-h-[calc(80vh-4.25rem)] sm:py-16 sm:pb-16 lg:min-h-[calc(85vh-4.25rem)] lg:py-24">
+        <div className="max-w-2xl">
+          <p className="inline-block max-w-full rounded-full bg-white/10 px-3 py-1.5 text-[0.6875rem] font-medium leading-snug text-white ring-1 ring-white/25 backdrop-blur-sm xs:px-3.5 xs:text-xs">
+            {settings.announcement}
+          </p>
 
-            <h1 className="mt-4 text-[1.625rem] font-bold leading-[1.2] tracking-tight text-charcoal xs:mt-5 xs:text-[1.75rem] sm:text-4xl sm:leading-[1.15] lg:text-[3rem]">
-              Trash can cleaning &amp; exterior wash — Purcell &amp; Norman, OK
-            </h1>
+          <h1 className="mt-4 text-[1.5rem] font-bold leading-[1.2] tracking-tight text-white xs:mt-5 xs:text-[1.625rem] sm:text-4xl sm:leading-[1.15] lg:text-[3rem]">
+            Trash can cleaning &amp; exterior wash
+            <span className="mt-1.5 block text-[0.85em] font-semibold text-brand-200 sm:mt-2 sm:text-[0.75em]">
+              Purcell &amp; Norman, OK
+            </span>
+          </h1>
 
-            <p className="mt-3 text-base font-medium text-brand-800 sm:mt-4 sm:text-lg">
-              {settings.tagline}
-            </p>
+          <p className="mt-3 text-base font-medium text-brand-200 sm:mt-4 sm:text-lg">
+            {settings.tagline}
+          </p>
 
-            <p className="mt-3 text-[0.9375rem] leading-relaxed text-charcoal-muted sm:mt-4 sm:text-base">
-              Deep clean smelly, maggot-filled cans. Siding, driveways, porches,
-              fences &amp; more. Same-day available in {settings.serviceArea}.
-            </p>
+          <p className="mt-3 max-w-xl text-[0.9375rem] leading-relaxed text-gray-200 sm:mt-4 sm:text-base">
+            Deep clean and sanitize smelly trash cans. Siding, driveways, porches,
+            and fences too.
+          </p>
+          <p className="mt-2 max-w-xl text-[0.9375rem] leading-relaxed text-gray-300 sm:text-base">
+            Same-day available in {settings.serviceArea}.
+          </p>
 
-            <ul className="mt-4 flex flex-wrap gap-2">
-              {["Guaranteed clean", "Same-day available", "Free quotes"].map(
-                (badge) => (
-                  <li
-                    key={badge}
-                    className="rounded-full bg-white px-3 py-1 text-xs font-medium text-charcoal ring-1 ring-gray-200"
-                  >
-                    {badge}
-                  </li>
-                )
-              )}
-            </ul>
+          <ul className="mt-5 flex flex-wrap gap-2">
+            {["Guaranteed clean", "Same-day available", "Free quotes"].map(
+              (badge) => (
+                <li
+                  key={badge}
+                  className="rounded-full bg-white/10 px-3.5 py-1.5 text-xs font-medium text-white ring-1 ring-white/20 backdrop-blur-sm"
+                >
+                  {badge}
+                </li>
+              )
+            )}
+          </ul>
 
-            <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center">
-              <Link
-                href="/quote"
-                className="btn-primary w-full px-6 py-3.5 sm:w-auto sm:py-3"
-              >
-                Get a free quote
-              </Link>
-              <InstagramButton
-                variant="secondary"
-                className="w-full px-6 py-3.5 sm:w-auto sm:py-3"
-              />
-              <a
-                href={`tel:${settings.phone.replace(/\D/g, "")}`}
-                className="btn-secondary w-full px-6 py-3.5 sm:hidden"
-              >
-                Call {settings.phone}
-              </a>
-              <a
-                href={`tel:${settings.phone.replace(/\D/g, "")}`}
-                className="hidden text-sm font-semibold text-charcoal-muted hover:text-brand-800 sm:inline-flex"
-              >
-                Or call {settings.phone}
-              </a>
-            </div>
-          </div>
-
-          <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
-            <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-soft ring-1 ring-black/5">
-              <div className="relative aspect-[4/3] w-full">
-                <Image
-                  src={HERO_IMAGE.src}
-                  alt={HERO_IMAGE.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
-              </div>
-              <div className="border-t border-gray-100 bg-white px-4 py-3 sm:px-5 sm:py-4">
-                <p className="text-xs font-semibold uppercase tracking-wide text-brand-700">
-                  Recent work
-                </p>
-                <p className="mt-1 text-sm text-charcoal-muted">
-                  {HERO_IMAGE.caption}
-                </p>
-              </div>
-            </div>
-            <p className="mt-2 text-center text-xs text-charcoal-muted lg:text-left">
-              Photo from @all4one.exteriorsolutions on Instagram
-            </p>
+          <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center">
+            <Link
+              href="/quote"
+              className="touch-target inline-flex w-full items-center justify-center rounded-md bg-brand-600 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-brand-900/30 transition-colors hover:bg-brand-500 active:bg-brand-700 sm:w-auto sm:px-7 sm:py-3"
+            >
+              Get a free quote
+            </Link>
+            <InstagramButton
+              variant="secondary"
+              label="DM on Instagram"
+              className="w-full border-white/30 bg-white/10 px-4 text-sm text-white backdrop-blur-sm hover:bg-white/20 sm:w-auto sm:text-base"
+            />
+            <a
+              href={`tel:${settings.phone.replace(/\D/g, "")}`}
+              className="touch-target inline-flex w-full items-center justify-center rounded-md border border-white/30 bg-transparent px-6 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10 sm:hidden"
+            >
+              Call {settings.phone}
+            </a>
+            <a
+              href={`tel:${settings.phone.replace(/\D/g, "")}`}
+              className="hidden text-sm font-semibold text-gray-200 hover:text-white sm:inline-flex"
+            >
+              Or call {settings.phone}
+            </a>
           </div>
         </div>
+
+        <p className="mt-8 text-[10px] leading-snug text-white/40 sm:absolute sm:bottom-4 sm:right-8 sm:mt-0 sm:max-w-xs sm:text-right">
+          Backdrop: illustrative photo — not a client project
+        </p>
       </div>
     </section>
   );
