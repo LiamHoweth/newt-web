@@ -39,6 +39,7 @@ jobs:
       - name: Build static site
         run: npm run build
         env:
+          NEXT_PUBLIC_BASE_PATH: /newt-web
           NEXT_PUBLIC_SITE_URL: https://liamhoweth.github.io/newt-web
 
       - name: Upload Pages artifact
