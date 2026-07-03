@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "main": ".open-next/worker.js",
-  "name": "a4o",
+  "name": "all4one",
   "compatibility_date": "2026-07-02",
   "compatibility_flags": [
     "nodejs_compat",
