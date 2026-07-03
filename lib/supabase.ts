@@ -1,11 +1,10 @@
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
+import { getEnv } from "./env";
 
 let adminClient: SupabaseClient | null = null;
 
 export function isSupabaseConfigured(): boolean {
-  return Boolean(
-    process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
+  return Boolean(getEnv("SUPABASE_URL") && getEnv("SUPABASE_SERVICE_ROLE_KEY"));
 }
 
 /** Server-side Supabase client with service role for admin operations. */
@@ -14,8 +13,8 @@ export function getSupabaseAdmin(): SupabaseClient | null {
 
   if (!adminClient) {
     adminClient = createClient(
-      process.env.SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!,
+      getEnv("SUPABASE_URL")!,
+      getEnv("SUPABASE_SERVICE_ROLE_KEY")!,
       { auth: { persistSession: false } }
     );
   }
@@ -24,13 +23,12 @@ export function getSupabaseAdmin(): SupabaseClient | null {
 
 /** Public Supabase client for browser uploads (when anon key is set). */
 export function getSupabasePublic(): SupabaseClient | null {
-  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_ANON_KEY) return null;
-  return createClient(
-    process.env.SUPABASE_URL,
-    process.env.SUPABASE_ANON_KEY
-  );
+  const url = getEnv("SUPABASE_URL");
+  const anonKey = getEnv("SUPABASE_ANON_KEY");
+  if (!url || !anonKey) return null;
+  return createClient(url, anonKey);
 }
 
 export function isStorageConfigured(): boolean {
-  return isSupabaseConfigured() && Boolean(process.env.SUPABASE_ANON_KEY);
+  return isSupabaseConfigured() && Boolean(getEnv("SUPABASE_ANON_KEY"));
 }

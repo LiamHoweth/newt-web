@@ -1,4 +1,5 @@
-# Push secrets from .env.local to Cloudflare Worker (run after: npx wrangler login)
+# Push secrets from .env.local to Cloudflare Worker a4o.
+# Prereq: npx wrangler login
 $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $PSScriptRoot
 $envFile = Join-Path $root ".env.local"
@@ -42,9 +43,10 @@ try {
     $values[$name] | npx wrangler secret put $name
   }
   Write-Host ""
-  Write-Host "Done. Also add the same vars in Cloudflare Dashboard:"
-  Write-Host "  Workers & Pages -> a4o -> Settings -> Variables"
-  Write-Host "  Build variables AND Runtime variables (mark keys as Secrets)."
+  Write-Host "Done. Secrets are stored on worker a4o."
+  Write-Host "Deploy with: npm run deploy"
+  Write-Host "Verify live: https://all4oneexterior.com/api/config"
+  Write-Host "  storageMode should be supabase; runtimeEnv flags should all be true."
 } finally {
   Pop-Location
 }

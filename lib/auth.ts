@@ -1,11 +1,12 @@
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
+import { getEnv } from "./env";
 
 const SESSION_COOKIE = "a4o_admin_session";
 const SESSION_VALUE = "authenticated";
 
 export function isAdminPasswordConfigured(): boolean {
-  return Boolean(process.env.ADMIN_PASSWORD);
+  return Boolean(getEnv("ADMIN_PASSWORD"));
 }
 
 export async function isAdminAuthenticated(): Promise<boolean> {
@@ -30,7 +31,7 @@ export function clearAdminSession(response: NextResponse): NextResponse {
 }
 
 export function verifyPassword(password: string): boolean {
-  const expected = process.env.ADMIN_PASSWORD;
+  const expected = getEnv("ADMIN_PASSWORD");
   if (!expected) return false;
   return password === expected;
 }
