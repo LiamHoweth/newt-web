@@ -43,7 +43,7 @@ try {
   }
   Write-Host ""
   Write-Host "Done. Also add the same vars in Cloudflare Dashboard:"
-  Write-Host "  Workers & Pages -> all4one-exterior-solutions -> Settings -> Variables"
+  Write-Host "  Workers & Pages -> a4o -> Settings -> Variables"
   Write-Host "  Build variables AND Runtime variables (mark keys as Secrets)."
 } finally {
   Pop-Location
