@@ -5,7 +5,7 @@ import { INSTAGRAM_PROFILE_URL, INSTAGRAM_USERNAME } from "@/lib/instagram";
 
 export default function RecentWork() {
   return (
-    <section className="border-y border-gray-200 bg-gray-50 py-12 sm:py-16">
+    <section className="border-y border-brand-100 bg-brand-50/80 py-12 sm:py-16">
       <div className="section-container">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
@@ -27,9 +27,9 @@ export default function RecentWork() {
               href={INSTAGRAM_PROFILE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group overflow-hidden rounded-lg border border-gray-200 bg-white shadow-soft transition-shadow hover:shadow-md"
+              className="group overflow-hidden rounded-lg border border-brand-100 bg-white shadow-soft transition-shadow hover:border-brand-200 hover:shadow-md"
             >
-              <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
                 <Image
                   src={item.src}
                   alt={item.alt}

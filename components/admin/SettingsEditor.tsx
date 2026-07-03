@@ -82,7 +82,7 @@ export default function SettingsEditor() {
         <div className="rounded-md bg-red-50 px-3 py-2 text-sm text-red-700">{error}</div>
       )}
       {saved && (
-        <div className="flex items-center gap-2 rounded-md bg-emerald-50 px-3 py-2 text-sm text-emerald-700">
+        <div className="flex items-center gap-2 rounded-md bg-brand-50 px-3 py-2 text-sm text-brand-700">
           <CheckCircle className="h-4 w-4" aria-hidden />
           Settings saved
         </div>

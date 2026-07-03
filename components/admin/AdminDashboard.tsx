@@ -7,7 +7,7 @@ import LeadTable from "./LeadTable";
 import LeadDetail from "./LeadDetail";
 import SettingsEditor from "./SettingsEditor";
 import type { Lead } from "@/lib/types";
-import { cn } from "@/lib/utils";
+import { cn, getAdminUrlDisplay } from "@/lib/utils";
 
 type Tab = "leads" | "settings";
 
@@ -47,6 +47,9 @@ export default function AdminDashboard() {
           <h1 className="text-2xl font-bold text-charcoal">Owner Dashboard</h1>
           <p className="text-sm text-charcoal-muted">
             Manage quote requests and site settings
+          </p>
+          <p className="mt-1 text-xs text-charcoal-muted">
+            Bookmark: <span className="font-medium text-charcoal">{getAdminUrlDisplay()}</span>
           </p>
         </div>
         <button type="button" onClick={handleLogout} className="btn-secondary text-sm">

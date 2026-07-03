@@ -18,7 +18,7 @@ export default async function ServicesPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-gray-200">
+      <section className="relative overflow-hidden border-b border-brand-200">
         <div className="absolute inset-0">
           <Image
             src={HERO_BACKDROP.src}
@@ -29,7 +29,7 @@ export default async function ServicesPage() {
             priority
             aria-hidden
           />
-          <div className="absolute inset-0 bg-charcoal/75" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-950/90 via-brand-900/80 to-brand-800/70" />
         </div>
         <div className="section-container relative py-14 sm:py-16">
           <h1 className="text-2xl font-bold text-white sm:text-4xl">Services</h1>

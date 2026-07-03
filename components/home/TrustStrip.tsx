@@ -10,7 +10,7 @@ export default function TrustStrip({ phone }: TrustStripProps) {
   ];
 
   return (
-    <section className="border-b border-gray-200 bg-white py-4">
+    <section className="border-b border-brand-100 bg-brand-50 py-4">
       <div className="section-container">
         <ul className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-2">
           {items.map((item) => (

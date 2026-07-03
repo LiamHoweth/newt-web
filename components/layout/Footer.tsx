@@ -12,7 +12,7 @@ export default function Footer({ settings }: FooterProps) {
   const showEmail = !isPlaceholderEmail(settings.email);
 
   return (
-    <footer className="border-t border-gray-200 bg-white py-10 text-sm text-charcoal-muted mobile-page-bottom md:pb-10">
+    <footer className="border-t border-brand-100 bg-white py-10 text-sm text-charcoal-muted">
       <div className="section-container">
         <div className="grid gap-8 sm:grid-cols-3">
           <div>

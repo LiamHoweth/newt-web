@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import type { Lead } from "./types";
+import { formatLeadSummary } from "./lead-format";
 import { getAdminDashboardUrl, formatTimingLabel } from "./utils";
 
 /**
@@ -24,25 +25,7 @@ export async function sendOwnerEmailNotification(lead: Lead): Promise<void> {
 
   const resend = new Resend(apiKey);
   const dashboardUrl = getAdminDashboardUrl();
-
-  const body = `
-New quote request from ${lead.name}
-
-Phone: ${lead.phone}
-Email: ${lead.email || "Not provided"}
-Services: ${lead.services.join(", ")}
-Address/ZIP: ${lead.addressOrZip}
-Preferred timing: ${formatTimingLabel(lead.preferredTiming)}${lead.specificDate ? ` (${lead.specificDate})` : ""}
-Trash cans: ${lead.trashCanCount ?? "N/A"}
-Notes: ${lead.notes || "None"}
-
-Photos: ${lead.photoUrls.length ? lead.photoUrls.join("\n") : "None uploaded"}
-
-Consent to contact: ${lead.consentToContact ? "Yes" : "No"}
-Submitted: ${lead.createdAt}
-
-View in dashboard: ${dashboardUrl}
-  `.trim();
+  const body = formatLeadSummary(lead, { includeDashboardUrl: dashboardUrl });
 
   const { error } = await resend.emails.send({
     from,

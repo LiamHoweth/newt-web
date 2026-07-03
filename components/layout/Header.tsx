@@ -20,8 +20,8 @@ export default function Header({ settings, overlay = false }: HeaderProps) {
     <header
       className={`sticky top-0 z-50 border-b transition-colors ${
         overlay
-          ? "border-white/10 bg-charcoal/20 backdrop-blur-md"
-          : "border-gray-200/80 bg-white/95 backdrop-blur-sm"
+          ? "border-white/10 bg-brand-900/45 backdrop-blur-md"
+          : "border-brand-100/80 bg-white/95 backdrop-blur-sm"
       }`}
     >
       <div className="section-container relative flex h-[4.25rem] items-center justify-between gap-3">

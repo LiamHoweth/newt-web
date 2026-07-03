@@ -121,7 +121,7 @@ export const DEFAULT_SETTINGS: SiteSettings = {
   phone: "(859) 753-4859",
   email: "",
   instagramUrl: "https://www.instagram.com/all4one.exteriorsolutions/",
-  serviceArea: "Purcell, Norman & surrounding OK areas",
+  serviceArea: "Purcell, Edmond & surrounding areas",
   hours: "Mon–Sat — call or DM for same-day availability",
   announcement: "Same-day trash can & exterior cleaning available.",
   showPricing: false,

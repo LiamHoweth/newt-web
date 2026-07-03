@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { Loader2, Lock } from "lucide-react";
+import { getAdminUrlDisplay } from "@/lib/utils";
 
 interface AdminLoginProps {
   onSuccess: () => void;
@@ -11,6 +12,7 @@ export default function AdminLogin({ onSuccess }: AdminLoginProps) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const adminUrl = getAdminUrlDisplay();
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -47,6 +49,10 @@ export default function AdminLogin({ onSuccess }: AdminLoginProps) {
         </div>
         <p className="mt-2 text-sm text-charcoal-muted">
           Enter your admin password to access the dashboard.
+        </p>
+        <p className="mt-3 rounded-md bg-gray-50 px-3 py-2 text-sm text-charcoal">
+          Owner login:{" "}
+          <span className="font-semibold">{adminUrl}</span>
         </p>
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">

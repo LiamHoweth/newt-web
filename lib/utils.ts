@@ -9,6 +9,18 @@ export function getAdminDashboardUrl(): string {
   return `${getSiteUrl()}/admin`;
 }
 
+/** Host + path for display (e.g. all4oneexterior.com/admin). Safe on client. */
+export function getAdminUrlDisplay(): string {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  if (siteUrl) {
+    return `${siteUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")}/admin`;
+  }
+  if (typeof window !== "undefined") {
+    return `${window.location.host}/admin`;
+  }
+  return "localhost:3000/admin";
+}
+
 export function formatPhoneDisplay(phone: string): string {
   const digits = phone.replace(/\D/g, "");
   if (digits.length === 10) {

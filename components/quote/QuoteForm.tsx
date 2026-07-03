@@ -142,8 +142,8 @@ function QuoteFormInner() {
 
   if (success) {
     return (
-      <div className="rounded-lg border border-clean/30 bg-emerald-50 p-8 text-center">
-        <CheckCircle className="mx-auto h-12 w-12 text-clean" aria-hidden />
+      <div className="rounded-lg border border-brand-200 bg-brand-50 p-8 text-center">
+        <CheckCircle className="mx-auto h-12 w-12 text-brand-600" aria-hidden />
         <h2 className="mt-4 text-xl font-bold text-charcoal">
           Quote request received!
         </h2>

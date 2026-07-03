@@ -22,7 +22,7 @@ export default function LocalBusinessJsonLd({
     areaServed: settings.serviceArea,
     openingHours: settings.hours,
     sameAs: [settings.instagramUrl],
-    image: `${siteUrl}/branding/logo.svg`,
+    image: `${siteUrl}/branding/logo-mark.png`,
     priceRange: "$$",
     serviceType: settings.services
       .filter((s) => s.enabled)

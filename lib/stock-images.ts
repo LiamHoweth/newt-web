@@ -8,8 +8,8 @@
 
 const publicBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
-/** Local hero backdrop - clean porch exterior (reference mood, not a client photo) */
+/** Local hero backdrop — illustrative before/after driveway wash (not a client photo) */
 export const HERO_BACKDROP = {
   src: `${publicBasePath}/hero/hero-backdrop.png`,
-  alt: "Illustration of a clean, well-maintained home porch and exterior",
+  alt: "Before and after comparison of a pressure-washed concrete driveway",
 };

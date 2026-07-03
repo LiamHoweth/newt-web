@@ -17,7 +17,7 @@ export default async function ContactPage() {
 
   return (
     <>
-      <section className="border-b border-gray-200 py-10">
+      <section className="border-b border-brand-100 bg-white py-10">
         <div className="section-container">
           <h1 className="text-2xl font-bold text-charcoal sm:text-3xl">Contact</h1>
           <p className="mt-2 max-w-lg text-sm text-charcoal-muted">
@@ -75,7 +75,7 @@ export default async function ContactPage() {
             </div>
           </dl>
 
-          <div className="mt-10 flex flex-wrap gap-3 border-t border-gray-200 pt-8">
+          <div className="mt-10 flex flex-wrap gap-3 border-t border-brand-100 pt-8">
             <a
               href={`tel:${settings.phone.replace(/\D/g, "")}`}
               className="btn-primary"

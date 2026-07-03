@@ -16,7 +16,7 @@ const statusColors: Record<LeadStatus, string> = {
   contacted: "bg-yellow-100 text-yellow-800",
   quoted: "bg-purple-100 text-purple-800",
   scheduled: "bg-indigo-100 text-indigo-800",
-  won: "bg-emerald-100 text-emerald-800",
+  won: "bg-brand-100 text-brand-800",
   lost: "bg-gray-100 text-gray-600",
 };
 

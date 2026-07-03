@@ -22,7 +22,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   viewportFit: "cover",
-  themeColor: "#166534",
+  themeColor: "#1e40af",
 };
 
 export const metadata: Metadata = {
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
     "siding cleaning Norman OK",
   ],
   icons: {
-    icon: "/branding/logo.svg",
-    apple: "/branding/logo.svg",
+    icon: "/branding/logo-emblem-square.png",
+    apple: "/branding/logo-emblem-square.png",
   },
   appleWebApp: {
     capable: true,
@@ -59,9 +59,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/hero/hero-backdrop.png",
-        width: 1200,
-        height: 800,
-        alt: "Clean home exterior — illustrative backdrop",
+        width: 1000,
+        height: 667,
+        alt: "Before and after pressure-washed driveway — illustrative backdrop",
       },
     ],
   },
@@ -76,7 +76,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={dmSans.variable}>
-      <body className="flex min-h-screen flex-col bg-white font-sans text-charcoal antialiased">
+      <body className="flex min-h-screen flex-col bg-brand-50/40 font-sans text-charcoal antialiased">
         <LocalBusinessJsonLd settings={settings} siteUrl={siteUrl} />
         <Header settings={settings} />
         <MobileNav settings={settings} />

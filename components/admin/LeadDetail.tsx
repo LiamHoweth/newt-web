@@ -1,7 +1,9 @@
 "use client";
 
-import { X } from "lucide-react";
+import { useState } from "react";
+import { X, Copy, Check } from "lucide-react";
 import type { Lead } from "@/lib/types";
+import { formatLeadSummary } from "@/lib/lead-format";
 import { formatDate, formatTimingLabel } from "@/lib/utils";
 
 interface LeadDetailProps {
@@ -10,6 +12,29 @@ interface LeadDetailProps {
 }
 
 export default function LeadDetail({ lead, onClose }: LeadDetailProps) {
+  const [copied, setCopied] = useState(false);
+  const summary = formatLeadSummary(lead);
+
+  async function handleCopy() {
+    try {
+      await navigator.clipboard.writeText(summary);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Fallback for older browsers
+      const textarea = document.createElement("textarea");
+      textarea.value = summary;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  }
+
   return (
     <div className="rounded-lg border border-gray-200 bg-white shadow-sm">
       <div className="flex items-center justify-between border-b border-gray-100 px-5 py-4">
@@ -22,6 +47,34 @@ export default function LeadDetail({ lead, onClose }: LeadDetailProps) {
         >
           <X className="h-5 w-5" aria-hidden />
         </button>
+      </div>
+
+      <div className="border-b border-gray-100 px-5 py-4">
+        <div className="flex items-center justify-between gap-2">
+          <p className="text-xs font-semibold uppercase tracking-wide text-charcoal-muted">
+            Copy for text or email
+          </p>
+          <button
+            type="button"
+            onClick={handleCopy}
+            className="btn-secondary shrink-0 text-xs"
+          >
+            {copied ? (
+              <>
+                <Check className="h-3.5 w-3.5" aria-hidden />
+                Copied!
+              </>
+            ) : (
+              <>
+                <Copy className="h-3.5 w-3.5" aria-hidden />
+                Copy summary
+              </>
+            )}
+          </button>
+        </div>
+        <pre className="mt-3 max-h-48 overflow-auto whitespace-pre-wrap rounded-md bg-gray-50 p-3 text-xs leading-relaxed text-charcoal">
+          {summary}
+        </pre>
       </div>
 
       <dl className="space-y-3 px-5 py-4 text-sm">

@@ -10,7 +10,7 @@ const STEPS = [
   },
   {
     icon: Sparkles,
-    title: "We show up & spray it",
+    title: "You say it, we spray it",
     description:
       "Same-day often available in Purcell & Norman. Professional equipment, guaranteed clean on trash cans.",
   },
@@ -24,7 +24,7 @@ const STEPS = [
 
 export default function HowItWorks() {
   return (
-    <section className="bg-brand-50/60 py-14 sm:py-16">
+    <section className="bg-brand-50 py-14 sm:py-16">
       <div className="section-container">
         <div className="text-center">
           <p className="text-xs font-semibold uppercase tracking-widest text-brand-700">

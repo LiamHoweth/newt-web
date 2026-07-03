@@ -10,7 +10,7 @@ interface HeroProps {
 
 export default function Hero({ settings }: HeroProps) {
   return (
-    <section className="relative -mt-[4.25rem] min-h-[72vh] overflow-hidden border-b border-gray-900/10 pt-[4.25rem] sm:min-h-[80vh] lg:min-h-[85vh]">
+    <section className="relative -mt-[4.25rem] min-h-[72vh] overflow-hidden border-b border-brand-900/20 pt-[4.25rem] sm:min-h-[80vh] lg:min-h-[85vh]">
       {/* Full-bleed backdrop */}
       <div className="absolute inset-0">
         <Image
@@ -22,31 +22,31 @@ export default function Hero({ settings }: HeroProps) {
           priority
           quality={90}
         />
-        {/* Stronger overlay on mobile for text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/92 via-charcoal/80 to-charcoal/55 sm:from-charcoal/85 sm:via-charcoal/70 sm:to-charcoal/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-charcoal/20 to-transparent sm:from-charcoal/60 sm:via-transparent sm:to-charcoal/20" />
+        {/* Dark scrim for legibility — stronger on mobile */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/35 sm:from-black/60 sm:via-black/35 sm:to-black/15" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/15" />
       </div>
 
-      <div className="section-container relative flex min-h-[calc(72vh-4.25rem)] flex-col justify-center py-10 pb-14 sm:min-h-[calc(80vh-4.25rem)] sm:py-16 sm:pb-16 lg:min-h-[calc(85vh-4.25rem)] lg:py-24">
+      <div className="section-container relative z-10 flex min-h-[calc(72vh-4.25rem)] flex-col justify-center py-10 pb-14 sm:min-h-[calc(80vh-4.25rem)] sm:py-16 sm:pb-16 lg:min-h-[calc(85vh-4.25rem)] lg:py-24">
         <div className="max-w-2xl">
-          <p className="inline-block max-w-full rounded-full bg-white/10 px-3 py-1.5 text-[0.6875rem] font-medium leading-snug text-white ring-1 ring-white/25 backdrop-blur-sm xs:px-3.5 xs:text-xs">
+          <p className="inline-block max-w-full rounded-full bg-black/40 px-3 py-1.5 text-[0.6875rem] font-medium leading-snug text-white ring-1 ring-white/20 backdrop-blur-sm xs:px-3.5 xs:text-xs">
             {settings.announcement}
           </p>
 
           <h1 className="mt-4 text-[1.5rem] font-bold leading-[1.2] tracking-tight text-white xs:mt-5 xs:text-[1.625rem] sm:text-4xl sm:leading-[1.15] lg:text-[3rem]">
-            Trash can cleaning &amp; exterior wash
-            <span className="mt-1.5 block text-[0.85em] font-semibold text-brand-200 sm:mt-2 sm:text-[0.75em]">
-              Purcell &amp; Norman, OK
+            Elite cleaning and exterior washing
+            <span className="mt-1.5 block text-[0.85em] font-semibold text-gray-200 sm:mt-2 sm:text-[0.75em]">
+              Purcell, Edmond &amp; surrounding areas
             </span>
           </h1>
 
-          <p className="mt-3 text-base font-medium text-brand-200 sm:mt-4 sm:text-lg">
+          <p className="mt-3 text-base font-medium text-gray-200 sm:mt-4 sm:text-lg">
             {settings.tagline}
           </p>
 
           <p className="mt-3 max-w-xl text-[0.9375rem] leading-relaxed text-gray-200 sm:mt-4 sm:text-base">
-            Deep clean and sanitize smelly trash cans. Siding, driveways, porches,
-            and fences too.
+            Siding, driveways, porches, fences, and trash can cleaning and
+            sanitization.
           </p>
           <p className="mt-2 max-w-xl text-[0.9375rem] leading-relaxed text-gray-300 sm:text-base">
             Same-day available in {settings.serviceArea}.
@@ -57,7 +57,7 @@ export default function Hero({ settings }: HeroProps) {
               (badge) => (
                 <li
                   key={badge}
-                  className="rounded-full bg-white/10 px-3.5 py-1.5 text-xs font-medium text-white ring-1 ring-white/20 backdrop-blur-sm"
+                  className="rounded-full bg-black/40 px-3.5 py-1.5 text-xs font-medium text-white ring-1 ring-white/20 backdrop-blur-sm"
                 >
                   {badge}
                 </li>
@@ -91,10 +91,6 @@ export default function Hero({ settings }: HeroProps) {
             </a>
           </div>
         </div>
-
-        <p className="mt-8 text-[10px] leading-snug text-white/40 sm:absolute sm:bottom-4 sm:right-8 sm:mt-0 sm:max-w-xs sm:text-right">
-          Backdrop: illustrative photo — not a client project
-        </p>
       </div>
     </section>
   );

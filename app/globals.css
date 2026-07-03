@@ -9,7 +9,7 @@
   }
 
   body {
-    @apply overflow-x-hidden bg-white text-charcoal antialiased;
+    @apply overflow-x-hidden bg-brand-50/40 text-charcoal antialiased;
   }
 
   :focus-visible {
@@ -24,11 +24,11 @@
   }
 
   .btn-primary {
-    @apply touch-target inline-flex items-center justify-center rounded-md bg-brand-700 px-5 py-2.5 text-base font-semibold text-white shadow-soft transition-colors hover:bg-brand-800 active:bg-brand-900 disabled:cursor-not-allowed disabled:opacity-60 sm:text-sm;
+    @apply touch-target inline-flex items-center justify-center rounded-md bg-brand-700 px-5 py-2.5 text-base font-semibold text-white shadow-soft shadow-brand-900/20 transition-colors hover:bg-brand-600 active:bg-brand-800 disabled:cursor-not-allowed disabled:opacity-60 sm:text-sm;
   }
 
   .btn-secondary {
-    @apply touch-target inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-5 py-2.5 text-base font-semibold text-charcoal transition-colors hover:border-gray-400 hover:bg-gray-50 active:bg-gray-100 sm:text-sm;
+    @apply touch-target inline-flex items-center justify-center rounded-md border border-brand-200 bg-white px-5 py-2.5 text-base font-semibold text-brand-800 transition-colors hover:border-brand-300 hover:bg-brand-50 active:bg-brand-100 sm:text-sm;
   }
 
   .section-container {
@@ -50,7 +50,7 @@
 
   /* Tap-friendly checkbox/radio rows on phones */
   .choice-row {
-    @apply flex min-h-[48px] cursor-pointer items-center gap-3 rounded-md border border-gray-200 px-3 py-2 text-base active:bg-gray-50 sm:min-h-0 sm:gap-2 sm:py-2.5 sm:text-sm;
+    @apply flex min-h-[48px] cursor-pointer items-center gap-3 rounded-md border border-brand-100 px-3 py-2 text-base active:bg-brand-50 sm:min-h-0 sm:gap-2 sm:py-2.5 sm:text-sm;
   }
 
   .choice-input {
