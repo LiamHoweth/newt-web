@@ -19,5 +19,15 @@
       "binding": "WORKER_SELF_REFERENCE",
       "service": "a4o"
     }
+  ],
+  "routes": [
+    {
+      "pattern": "all4oneexterior.com/*",
+      "zone_name": "all4oneexterior.com"
+    },
+    {
+      "pattern": "www.all4oneexterior.com/*",
+      "zone_name": "all4oneexterior.com"
+    }
   ]
 }
