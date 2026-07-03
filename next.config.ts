@@ -1,21 +1,35 @@
 import type { NextConfig } from "next";
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
 const isGitHubPages = process.env.GITHUB_ACTIONS === "true";
 
-const nextConfig: NextConfig = {
-  output: "export",
-  basePath: isGitHubPages ? "/newt-web" : undefined,
-  assetPrefix: isGitHubPages ? "/newt-web/" : undefined,
-  trailingSlash: true,
-  images: {
-    unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "*.supabase.co",
+const nextConfig: NextConfig = isGitHubPages
+  ? {
+      output: "export",
+      basePath: "/newt-web",
+      assetPrefix: "/newt-web/",
+      trailingSlash: true,
+      images: {
+        unoptimized: true,
+        remotePatterns: [
+          {
+            protocol: "https",
+            hostname: "*.supabase.co",
+          },
+        ],
       },
-    ],
-  },
-};
+    }
+  : {
+      images: {
+        remotePatterns: [
+          {
+            protocol: "https",
+            hostname: "*.supabase.co",
+          },
+        ],
+      },
+    };
 
 export default nextConfig;
+
+initOpenNextCloudflareForDev();
