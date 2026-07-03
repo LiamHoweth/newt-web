@@ -20,14 +20,15 @@
       "service": "a4o"
     }
   ],
+  "workers_dev": false,
   "routes": [
     {
-      "pattern": "all4oneexterior.com/*",
-      "zone_name": "all4oneexterior.com"
+      "pattern": "all4oneexterior.com",
+      "custom_domain": true
     },
     {
-      "pattern": "www.all4oneexterior.com/*",
-      "zone_name": "all4oneexterior.com"
+      "pattern": "www.all4oneexterior.com",
+      "custom_domain": true
     }
   ]
 }
