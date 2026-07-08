@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { getEnvFlags } from "@/lib/env";
+import { getEnvFlagsAsync } from "@/lib/env";
 import { isPhotoUploadAvailable } from "@/lib/upload";
-import { getStorageMode } from "@/lib/storage";
+import { isStorageConfigured } from "@/lib/supabase";
 
 const RUNTIME_ENV_KEYS = [
   "ADMIN_PASSWORD",
@@ -11,9 +11,12 @@ const RUNTIME_ENV_KEYS = [
 ] as const;
 
 export async function GET() {
+  const runtimeEnv = await getEnvFlagsAsync(RUNTIME_ENV_KEYS);
+  const storageMode = isStorageConfigured() ? "supabase" : "local";
+
   return NextResponse.json({
     photoUpload: isPhotoUploadAvailable(),
-    storageMode: getStorageMode(),
-    runtimeEnv: getEnvFlags(RUNTIME_ENV_KEYS),
+    storageMode,
+    runtimeEnv,
   });
 }
